@@ -32,12 +32,8 @@ import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
 #if MODS_ALLOWED
-import ModsMenuState;
 import modding.PolymodHandler;
-import modding.ModList;
-import polymod.Polymod;
-import polymod.Polymod.Framework;
-import polymod.Polymod.PolymodError;
+import polymod.*;
 #end
 
 using StringTools;
@@ -101,7 +97,7 @@ class TitleState extends MusicBeatState
 
 		Fixer.initPlayerSettings();
 
-		#if desktop
+		#if MODS_ALLOWED
 		PolymodHandler.loadMods();
 		#end
 
