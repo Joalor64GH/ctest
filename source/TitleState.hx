@@ -145,10 +145,6 @@ class TitleState extends MusicBeatState
 	{
 		if (!initialized)
 		{
-			#if MODS_ALLOWED
-			ModList.load();
-			#end
-
 			var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
 			diamond.persist = true;
 			diamond.destroyOnNoUse = false;
