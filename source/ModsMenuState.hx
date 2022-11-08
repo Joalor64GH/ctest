@@ -20,6 +20,7 @@ package;
 import modding.ModIcon;
 import modding.ModList;
 import modding.PolymodHandler;
+import modding.ModsMenuStateOption;
 import flixel.group.FlxGroup;
 import ChartingState;
 import flixel.system.FlxSound;
@@ -43,7 +44,7 @@ class ModsMenuState extends MusicBeatState
 {
 	var curSelected:Int = 0;
 
-	var page:FlxTypedGroup<ModsMenuStateOption> = new FlxTypedGroup<ModsMenuStateOption>();
+	public var page:FlxTypedGroup<ModsMenuStateOption> = new FlxTypedGroup<ModsMenuStateOption>();
 
 	public static var instance:ModsMenu;
 
