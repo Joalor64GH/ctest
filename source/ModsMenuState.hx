@@ -43,7 +43,7 @@ class ModsMenuState extends MusicBeatState
 {
 	var curSelected:Int = 0;
 
-	public var page:FlxTypedGroup<ModsMenuStateOption> = new FlxTypedGroup<ModsMenuStateOption>();
+	var page:FlxTypedGroup<ModsMenuStateOption> = new FlxTypedGroup<ModsMenuStateOption>();
 
 	public static var instance:ModsMenu;
 
