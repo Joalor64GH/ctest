@@ -1,6 +1,6 @@
 package modding;
 
-#if MODS_ALLOWED
+#if sys
 import sys.io.File;
 import openfl.display.BitmapData;
 import flixel.FlxSprite;
@@ -23,7 +23,7 @@ class ModIcon extends FlxSprite
 
 		setGraphicSize(150, 150);
 		updateHitbox();
-
+		
 		scrollFactor.set();
 		antialiasing = true;
 	}

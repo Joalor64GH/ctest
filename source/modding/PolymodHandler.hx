@@ -1,50 +1,51 @@
 package modding;
 
-// this is here so the game doesnt crash because of no framework params
-#if MODS_ALLOWED
+#if polymod
 import polymod.Polymod;
 
 class PolymodHandler
 {
-	public static var swagMeta:String;
-	public static var metadataArrays:Array<String> = [];
+    public static var metadataArrays:Array<String> = [];
 
-	public static function loadMods()
-	{
-		loadModMetadata();
+    public static function loadMods()
+    {
+        loadModMetadata();
 
 		Polymod.init({
-			modRoot: "mods/",
+			modRoot:"mods/",
 			dirs: ModList.getActiveMods(metadataArrays),
+            framework: OPENFL,
 			errorCallback: function(error:PolymodError)
 			{
-				// trace(error.message);
+				#if debug
+                trace(error.message);
+                #end
 			},
-			frameworkParams: {
-				assetLibraryPaths: [
-					"songs" => "songs", "data" => "data", "fonts" => "fonts", "characters" => "characters", "scripts" => "scripts",
-					"cutscenes" => "cutscenes", "locales" => "locales", "music" => "music", "sounds" => "sounds", "stages" => "stages", "images" => "images",
+            frameworkParams: {
+                assetLibraryPaths: [
+                    "songs" => "songs", "data" => "data", "fonts" => "fonts", "characters" => "characters", "scripts" => "scripts",
+					"cutscenes" => "cutscenes", "locales" => "locales", "music" => "music", "sounds" => "sounds", "images" => "images",
 					"videos" => "videos"
-				]
-			}
+                ]
+            }
 		});
-	}
+    }
 
-	public static function loadModMetadata()
-	{
-		metadataArrays = [];
+    public static function loadModMetadata()
+    {
+        metadataArrays = [];
 
-		var tempArray = Polymod.scan("mods/", "*.*.*", function(error:PolymodError)
-		{
+        var tempArray = Polymod.scan("mods/","*.*.*",function(error:PolymodError) {
+            #if debug
 			trace(error.message);
+            #end
 		});
 
-		for (metadata in tempArray)
-		{
-			swagMeta = metadata.id;
-			metadataArrays.push(metadata.id);
-			ModList.modMetadatas.set(metadata.id, metadata);
-		}
-	}
+        for(metadata in tempArray)
+        {
+            metadataArrays.push(metadata.id);
+            ModList.modMetadatas.set(metadata.id, metadata);
+        }
+    }
 }
 #end
