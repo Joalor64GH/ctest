@@ -1,24 +1,10 @@
-package utilities;
+package;
 
 import haxe.Json;
 import openfl.Assets;
 import flixel.util.FlxSave;
-import game.Conductor;
 
-typedef DefaultOptions =
-{
-    var options:Array<DefaultOption>;
-}
-
-typedef DefaultOption = 
-{
-    var option:String; // option name
-    var value:Dynamic; // self explanatory
-
-    var save:Null<String>; // the save (KEY NAME) to use, by default is 'main'
-}
-
-class Options
+class Config
 {
     public static var bindNamePrefix:String = "chocolateengine";
     public static var bindPath:String = "joalor64gh";
